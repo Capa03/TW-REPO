@@ -35,27 +35,43 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
+        <header class="masthead" style="background-image: url('assets/img/temp/Wallpaper-Weather-Forecast-9.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>About Me</h1>
-                            <span class="subheading">This is what I do.</span>
+                            <h1>Tempo</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Main Content-->
-        <main class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+        <main>
+            <div class="container mt-3">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 p-3 bg-white text-dark" style="width:500px">
+                        <div class="col-sm-8 p-3 bg-white text-dark" >
+                            <div class="col-sm-4 p-3 text-dark card-body" style="width:500px">
+                                <h4 class="card-title">Enter the name from the city: </h4>
+                                <input type="text" id="myCity"><br><br>
+                                <button type="button" id="myButton" class="btn btn-primary">Search</button><br>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="col-sm-4 p-3 bg-white text-dark" >
+                        <img class="card-img-top justify-content-center" id = "imgWeather" style="width:45%">
+                    </div>
+
+                    <div class="col p-3 bg-white text-dark">
+                        <div class="card-body ">
+                            <p class="h1" id="nameCountry"></p>
+                            <p class="h2" id="nameCity"></p>
+                            <p class= "h2" id="result" class="card-text text-dark"></p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -98,6 +114,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="js/apiTemp.js"></script>
     </body>
 </html>
