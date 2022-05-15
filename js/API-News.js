@@ -5,7 +5,8 @@ async function news() {
     const newsResponseJson = await newsResponse.json();
     const articles = newsResponseJson.articles;
     const body = document.getElementById("body")
-
+    const date = new Date();
+    document.getElementById("newsDate").innerHTML = date.toDateString() ;
     for (let i = 0; i < articles.length; i++) {
 
             let urlSite = articles[i].url;
@@ -36,7 +37,6 @@ async function news() {
             postMeta.setAttribute("class","post-meta")
             postMeta.innerHTML = "Post by "
             postMeta.innerHTML += `<a href="${articles[i].url}">"${articles[i].source.name}"</a>`
-            postMeta.innerHTML += `on "${articles[i].publishedAt}"`
             divPostPreview.appendChild(postMeta)
         
             //Divider
