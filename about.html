@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Clean Blog - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <title>Clean Blog - Sobre</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/portuguese%20Flag.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -19,70 +19,54 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html"><img src="assets/img/cloudy.png" width="70px" height="70px" ></a>
+                <a class="navbar-brand" href="news.html"><img src="assets/img/cloudy.png" width="70px" height="70px" ></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html" >Tempo</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="news.html">Noticias</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="temp.html" >Tempo</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Sobre</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contacto</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/temp/Wallpaper-Weather-Forecast-9.jpg')">
+        <header class="masthead" style="background-image: url('assets/img/about-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Tempo</h1>
+                            <h1>Sobre</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Main Content-->
-        <main>
-            <div class="container mt-3 ">
-                <div class="row justify-content-center">
-                        <!-- Input city-->
-                    <div class="col-sm-8 p-3 bg-white text-dark" >
-                        <div class="col-sm-4 p-3 text-dark card-body" style="width:500px">
-                            <h4 class="card-title">Nome Cidade: </h4>
-                            <input type="text" id="myCity" ><br><br>
-                            <button type="button" id="myButton" class="btn btn-primary">Search</button><br>
-                        </div>
-                    </div>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h2 class="section-heading">Qual o Objetivo do site?</h2>
+                        <p>Site para a disciplina de Tecnologias web onde visa a avaliar a experiencia de utilização com tecnologias como <b>HTML,CSS e JavaScript.</b></p>
+                        <h2 class="section-heading">Notícias:</h2>
+                        <p>Notícias em destaque dos Jornais Nacionais portugueses</p>
+
+                        <h2 class="section-heading">Tempo:</h2>
+                        <p>Possibilidade de ver o tempo das cidades do Territorio Nacional Português </p>
 
 
-                    <!-- Result table-->
-                    <div id = "table" class="col p-3 bg-white text-dark" >
-                        <div class="col-sm-4 p-3 bg-white text-dark" >
-                            <img class="card-img-top justify-content-center" id = "imgWeather" style="width:60%">
-                        </div>
-                        <table class="table" >
-                            <tbody>
-                            <tr>
-                                <th scope="row"></th>
-                                <td class="h2" id="nameCity"></td>
-                                <td class="h2" id="nameCountry"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"></th>
-                                <td class= "h2" id="result" class="card-text text-dark" ></td>
-                                <td class="h4" id="humidity"></td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <img  class="img-fluid" src="assets/img/portuguese%20Flag.png" alt="..." /></a>
+                        <span class="caption text-muted">Bandeira Portuguesa</span>
+
                     </div>
                 </div>
             </div>
-        </main>
+        </article>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
@@ -122,6 +106,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/apiTemp.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>

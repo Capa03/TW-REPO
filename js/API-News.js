@@ -7,6 +7,7 @@ async function news() {
     const body = document.getElementById("body")
     const date = new Date();
     document.getElementById("newsDate").innerHTML = date.toDateString() ;
+
     for (let i = 0; i < articles.length; i++) {
 
             let urlSite = articles[i].url;
@@ -14,7 +15,7 @@ async function news() {
             let divPostPreview = document.createElement("div")        
             divPostPreview.setAttribute("class","post-preview")
             body.appendChild(divPostPreview)
-            
+            //Link Site
             let a = document.createElement("a")
             a.setAttribute("href",urlSite)
             divPostPreview.appendChild(a)
@@ -36,7 +37,7 @@ async function news() {
             let postMeta = document.createElement("p")
             postMeta.setAttribute("class","post-meta")
             postMeta.innerHTML = "Post by "
-            postMeta.innerHTML += `<a href="${articles[i].url}">"${articles[i].source.name}"</a>`
+            postMeta.innerHTML += `<a href="https://${articles[i].source.name}">"${articles[i].source.name}"</a>`
             divPostPreview.appendChild(postMeta)
         
             //Divider
