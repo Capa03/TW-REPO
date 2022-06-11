@@ -1,13 +1,23 @@
 
+var myModalOnEmptyInput = new bootstrap.Modal(document.getElementById('myModalEmpty'))
+var myModalOnInvalidInput = new bootstrap.Modal(document.getElementById('myModalInvalid'))
 async function whether(city) {
 
     let url = 'https://api.openweathermap.org/data/2.5/weather?q='+city+',pt&appid=36076a459d197d2328a7049f03e95d1d&units=metric';
+    let tempResponse;
+    let tempResponseJson;
 
-    const tempResponse = await fetch(url);
-    const tempResponseJson = await tempResponse.json();
-    const tempo = tempResponseJson.main;
-    const imgWeather = tempResponseJson.weather[0].main;
-    
+        tempResponse = await fetch(url);
+        tempResponseJson = await tempResponse.json();
+
+        if(tempResponseJson.cod === "404") {
+            myModalOnInvalidInput.show();
+            return;
+        }
+            const tempo = tempResponseJson.main;
+            const imgWeather = tempResponseJson.weather[0].main;
+
+
     let nameCity = tempResponseJson.name;
     
     
@@ -32,65 +42,20 @@ async function whether(city) {
     document.getElementById("myButton").onclick = function searchCity() {
         
         let myCity = document.getElementById("myCity").value;
-        
+
+
         if(myCity === ""){
-            //error()
-            window.alert("Error")
+            error()
         }else {
             whether(myCity);
         }
     }
 
     function error(){
-
-
-        const body = document.getElementById("body");
-
-        const myModal =document.createElement("div");
-        myModal.setAttribute("class","modal");
-        myModal.id = "myModal";
-        body.appendChild(myModal);
-
-        let divModalDialog = document.createElement("div");
-        divModalDialog.setAttribute("class","modal-dialog")
-        body.appendChild(divModalDialog);
-
-        let divClassModal = document.createElement("div");
-        divClassModal.setAttribute("class","modal-content")
-        divModalDialog.appendChild(divClassModal);
-
-        //Header
-        let divHeaderModal = document.createElement("div");
-        divHeaderModal.setAttribute("class","modal-header");
-        divClassModal.appendChild(divHeaderModal);
-
-        let titelModal = document.createElement("h4");
-        titelModal.setAttribute("class","modal-title");
-        titelModal.textContent = "Error";
-        divHeaderModal.appendChild(titelModal);
-
-        //Modal Body
-        let divBodyModal = document.createElement("div");
-        divBodyModal.setAttribute("class","modal-body");
-        divBodyModal.innerHTML = "Modal Body"
-        divClassModal.appendChild(divBodyModal);
-
-
-        //Modal footer
-        let divModalFooter = document.createElement("div");
-        divModalFooter.setAttribute("class","modal-footer");
-        divClassModal.appendChild(divModalFooter);
-
-        let buttonCloseModal = document.createElement("button");
-        buttonCloseModal.setAttribute("class","btn btn-danger");
-        buttonCloseModal.textContent = "Close";
-        divModalFooter.appendChild(buttonCloseModal);
-
-        $(document).ready(function(){
-            $("#myButton").click(function(){
-                $("#myModal").modal();
-            });
-        });
+        myModalOnEmptyInput.show();
     }
+
+
+
     //table
     document.getElementById("table").style.display = "none";
