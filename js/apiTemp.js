@@ -1,7 +1,8 @@
 
-var myModalOnEmptyInput = new bootstrap.Modal(document.getElementById('myModalEmpty'))
+
 var myModalOnInvalidInput = new bootstrap.Modal(document.getElementById('myModalInvalid'))
-async function whether(city) {
+
+async function Weather(city) {
 
     let url = 'https://api.openweathermap.org/data/2.5/weather?q='+city+',pt&appid=36076a459d197d2328a7049f03e95d1d&units=metric';
     let tempResponse;
@@ -39,23 +40,25 @@ async function whether(city) {
         }
 }
 
-    document.getElementById("myButton").onclick = function searchCity() {
-        
+
+    function searchCity() {
         let myCity = document.getElementById("myCity").value;
+            Weather(myCity);
+    }
 
 
-        if(myCity === ""){
-            error()
-        }else {
-            whether(myCity);
+    function onTextChange() {
+
+        let input = document.getElementById("myCity").value;
+
+        if(input === ""){
+            document.getElementById("myButton").className = "btn btn-primary disabled";
+        }else{
+            document.getElementById("myButton").className = "btn btn-primary enable";
         }
     }
 
-    function error(){
-        myModalOnEmptyInput.show();
-    }
 
 
-
-    //table
+        //table
     document.getElementById("table").style.display = "none";

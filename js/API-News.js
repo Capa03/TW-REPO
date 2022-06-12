@@ -6,45 +6,60 @@ async function news() {
     const articles = newsResponseJson.articles;
     const body = document.getElementById("body")
     const date = new Date();
-    document.getElementById("newsDate").innerHTML = date.toDateString() ;
+
+    let today = document.getElementById("newsDate");
+    today.innerHTML = date.toDateString();
+    today.className = "todayDate";
+
+
 
     for (let i = 0; i < articles.length; i++) {
 
-            let urlSite = articles[i].url;
+            if(articles[i].urlToImage != null) {
 
-            let divPostPreview = document.createElement("div")        
-            divPostPreview.setAttribute("class","post-preview")
-            body.appendChild(divPostPreview)
-            //Link Site
-            let a = document.createElement("a")
-            a.setAttribute("href",urlSite)
-            divPostPreview.appendChild(a)
-            
-            //Titulo
-            let header = document.createElement("h2")
-            header.setAttribute("class","post-title")
-            header.textContent = articles[i].title
+                let urlSite = articles[i].url;
+
+                let divPostPreview = document.createElement("div")
+                divPostPreview.setAttribute("class", "post-preview")
+                body.appendChild(divPostPreview)
+
+                //Link Site
+                let a = document.createElement("a")
+                a.setAttribute("href", urlSite)
+                divPostPreview.appendChild(a)
+
+                //Titulo
+                let header = document.createElement("h2")
+                header.setAttribute("class", "post-title")
+                header.textContent = articles[i].title
                 a.appendChild(header)
-            
-            //Descrição
-            let conteudo = document.createElement("h3")
-            conteudo.setAttribute("class", "post-subtitle")
-            conteudo.textContent = articles[i].description
+
+                //Descrição
+                let conteudo = document.createElement("h3")
+                conteudo.setAttribute("class", "post-subtitle")
+                conteudo.textContent = articles[i].description
                 a.appendChild(conteudo)
-            
-            //Post by
-            
-            let postMeta = document.createElement("p")
-            postMeta.setAttribute("class","post-meta")
-            postMeta.innerHTML = "Post by "
-            postMeta.innerHTML += `<a href="https://${articles[i].source.name}">"${articles[i].source.name}"</a>`
-            divPostPreview.appendChild(postMeta)
-        
-            //Divider
-            let divider = document.createElement("hr")
-            divider.setAttribute("class","my-4")
-            body.appendChild(divider)
-            
+
+                let image = document.createElement("img")
+                image.className = "newsImage"
+                image.src = articles[i].urlToImage;
+
+                a.appendChild(image);
+                console.log(articles[i].urlToImage)
+                //Post by
+
+                let postMeta = document.createElement("p")
+                postMeta.setAttribute("class", "post-meta")
+
+                postMeta.innerHTML = "Post by "
+                postMeta.innerHTML += `<a href="https://${articles[i].source.name}">"${articles[i].source.name}"</a>`
+                divPostPreview.appendChild(postMeta)
+
+                //Divider
+                let divider = document.createElement("hr")
+                divider.setAttribute("class", "my-4")
+                body.appendChild(divider)
+            }
     }
 }
 

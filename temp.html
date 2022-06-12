@@ -15,16 +15,14 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/estilos.css" rel="stylesheet" />
     </head>
     <body id ="body">
         <!-- Navigation-->
 
-
-
-
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="news.html"><img src="assets/img/cloudy.png" width="70px" height="70px" ></a>
+                <a class="navbar-brand" href="news.html"><img class="navbar-logo" src="assets/img/cloudy.png" alt="Logotipo do Site"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -60,11 +58,8 @@
                     <div class="col-sm-8 p-3 bg-white text-dark" >
                         <div class="col-sm-4 p-3 text-dark card-body" style="width:500px">
                             <h4 class="card-title">Nome Cidade: </h4>
-                            <input type="text" id="myCity" ><br><br>
-                            <button type="button" id="myButton" class="btn btn-primary"   >Search</button><br>
-
-
-
+                            <input type="text" id="myCity" oninput="onTextChange()" onchange="searchCity()" ><br><br>
+                            <button type="submit" id="myButton" class="btn btn-primary disabled " onclick="searchCity()" >Search</button><br>
                         </div>
                     </div>
 
@@ -73,7 +68,7 @@
                     <!-- Result table-->
                     <div id = "table" class="col p-3 bg-white text-dark" >
                         <div class="col-sm-4 p-3 bg-white text-dark" >
-                            <img class="card-img-top justify-content-center" id = "imgWeather" style="width:60%">
+                            <img class="card-img-top justify-content-center" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" id = "imgWeather" style="width:60%" alt="Weather Icon">
                         </div>
                         <table class="table" >
                             <tbody>
@@ -84,7 +79,7 @@
                             </tr>
                             <tr>
                                 <th scope="row"></th>
-                                <td class= "h2" id="result" class="card-text text-dark" ></td>
+                                <td id="result" class="card-text text-dark h2" ></td>
                                 <td class="h4" id="humidity"></td>
                             </tr>
                             </tbody>
@@ -98,32 +93,6 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
                         <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
                     </div>
                 </div>
@@ -138,13 +107,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Empty Input</h4>
+                        <h4 class="modal-title">Invalid Input</h4>
                     </div>
                     <div class="modal-body">
                         <p>Insert a name of a Portuguese City, please!</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -164,7 +133,7 @@
                         <p>Invalid city name, try another name please!</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
